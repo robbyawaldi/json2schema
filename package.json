@@ -1,0 +1,36 @@
+{
+  "name": "@robbyawaldi/json2schema",
+  "version": "1.0.0",
+  "bin": {
+    "json2schema": "dist/cli/index.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "vitest",
+    "test:dev": "ts-node ./src/cli/index.ts ./src/example/data.json",
+    "test:prod": "json2schema ./src/example/data.json",
+    "build": "rollup -c --bundleConfigAsCjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@robbyawaldi/json2schema": "^1.0.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@types/node": "^20.10.4",
+    "rollup": "^4.7.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.2"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "prettier": "^3.1.0"
+  }
+}
