@@ -8,7 +8,7 @@ import YAML from "json-to-pretty-yaml";
 
 program
   .argument("<string>", "filename")
-  .option("-f, --format", "json or ymal")
+  .option("-f, --format", "json or yaml")
   .action(async (str, options) => {
     try {
       const file = fs.readFileSync(path.resolve("./", str), "utf-8");
@@ -16,7 +16,7 @@ program
       const schema = jsonToOpenApiSchema(obj);
       const jsonFormat = await prettier.format(JSON.stringify(schema), config);
       const ymalFormat = YAML.stringify(schema);
-      const format = options.format ?? "json";
+      const format = options.format ?? "yaml";
       if (format === "json") {
         console.log(jsonFormat);
       } else {

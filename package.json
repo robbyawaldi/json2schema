@@ -1,6 +1,6 @@
 {
   "name": "@robbyawaldi/json2schema",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "bin": {
     "json2schema": "dist/cli/index.cjs"
   },
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "vitest",
-    "test:dev": "npm run build && node ./dist/cli/index.cjs ./src/example/data.json -f ymal",
+    "test:dev": "npm run build && node ./dist/cli/index.cjs ./src/example/data.json",
     "test:prod": "json2schema ./src/example/data.json",
     "build": "rollup -c --bundleConfigAsCjs"
   },
@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@robbyawaldi/json2schema": "^1.0.0",
+    "@robbyawaldi/json2schema": "^1.1.1",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@types/json-to-pretty-yaml": "^1.2.1",
     "@types/node": "^20.10.4",
