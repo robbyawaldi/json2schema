@@ -1,6 +1,6 @@
 {
   "name": "@robbyawaldi/json2schema",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "bin": {
     "json2schema": "dist/cli/index.cjs"
   },
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "vitest",
-    "test:dev": "ts-node ./src/cli/index.ts ./src/example/data.json",
+    "test:dev": "npm run build && node ./dist/cli/index.cjs ./src/example/data.json -f ymal",
     "test:prod": "json2schema ./src/example/data.json",
     "build": "rollup -c --bundleConfigAsCjs"
   },
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@robbyawaldi/json2schema": "^1.0.0",
     "@rollup/plugin-commonjs": "^25.0.7",
+    "@types/json-to-pretty-yaml": "^1.2.1",
     "@types/node": "^20.10.4",
     "rollup": "^4.7.0",
     "rollup-plugin-typescript2": "^0.36.0",
@@ -31,6 +32,7 @@
   },
   "dependencies": {
     "commander": "^11.1.0",
+    "json-to-pretty-yaml": "^1.2.2",
     "prettier": "^3.1.0"
   }
 }
