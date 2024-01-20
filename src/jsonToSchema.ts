@@ -4,11 +4,16 @@ export function jsonToOpenApiSchema(jsonData: any) {
     for (const [key, value] of Object.entries(obj)) {
       properties[key] = parseValue(value);
     }
+    if (Object.entries(obj).length < 1) {
+      properties["name"] = {
+        type: "string",
+      };
+    }
     return { type: "object", properties: properties };
   }
 
   function parseArray(arr: any[]) {
-    const items: any = arr.length ? parseValue(arr[0]) : {};
+    const items: any = arr.length ? parseValue(arr[0]) : { type: "string" };
     return { type: "array", items: items };
   }
 

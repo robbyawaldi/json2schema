@@ -5,7 +5,14 @@ test("should handle an empty object", () => {
   const jsonData = {};
   const result = jsonToOpenApiSchema(jsonData);
 
-  expect(result).toEqual({ type: "object", properties: {} });
+  expect(result).toEqual({
+    type: "object",
+    properties: {
+      name: {
+        type: "string",
+      },
+    },
+  });
 });
 
 test("should handle a simple object", () => {
@@ -78,6 +85,23 @@ test("should handle an array of object type", () => {
       properties: {
         key1: { type: "string" },
         key2: { type: "number" },
+      },
+    },
+  });
+});
+
+test("should return an empty array", () => {
+  const result = jsonToOpenApiSchema({
+    key: [],
+  });
+  expect(result).toEqual({
+    type: "object",
+    properties: {
+      key: {
+        type: "array",
+        items: {
+          type: "string",
+        },
       },
     },
   });
